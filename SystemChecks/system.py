@@ -40,40 +40,6 @@ def check_processes(keywords):
     return '[*] No VM processes found'
 
 
-def check_BIOS():
-    """
-    Checks BIOS parameters that can differentiate VM from physical machine
-    :return: dictionary with parameters and their values
-    """
-    print("[*] Checking BIOS info ...")
-    wmi_service = wmi.WMI()
-    bios_info = wmi_service.Win32_BIOS()[0]
-    check_parameters = {
-        "BiosVersion": bios_info.BIOSVersion,
-        "Caption": bios_info.Caption,
-        "Description": bios_info.Description,
-        "SoftwareElementID": bios_info.SoftwareElementID,
-        "Version": bios_info.Version
-    }
-    return check_parameters
-
-
-def check_motherboard():
-    """
-    Checks motherboard parameters that can differentiate VM from physical machine
-    :return: dictionary with parameters and their values
-    """
-    print("[*] Checking motherboard info ...")
-    wmi_service = wmi.WMI()
-    motherboard_info = wmi_service.Win32_BaseBoard()[0]
-    check_parameters = {
-        "Manufacturer": motherboard_info.Manufacturer,
-        "Product": motherboard_info.Product,
-        "SerialNumber": motherboard_info.SerialNumber
-    }
-    return check_parameters
-
-
 def check_prompt():
     """
     Checks for PROMPT environment variable
@@ -90,23 +56,17 @@ def check_prompt():
 def check_users():
     wmi_service = wmi.WMI()
     users = wmi_service.Win32_UserAccount()
+    usernames = ['malawre', 'maltest', 'sandbox', 'virus', 'vmware', 'vbox', 'virusclone']
     for user in users:
-        print(f"Username: {user.Name} Domain: {user.Domain}")
-
-
-def check_OS():
-    wmi_service = wmi.WMI()
-    os_info = wmi_service.Win32_OperatingSystem()[0]
-    return os_info
+        if user in usernames:
+            print("Suspicious username detected: " + user.Name)
+    return users
 
 
 if __name__ == "__main__":
-    VM_KEYWORDS = load_file('VM_KEYWORDS')
-    check_processes(VM_KEYWORDS)
-    pprint.pprint(check_OS())
-    pprint.pprint(check_BIOS())
-    pprint.pprint(check_motherboard())
-    check_users()
-    pprint.pprint(check_prompt())
+    # VM_KEYWORDS = load_file('VM_KEYWORDS')
+    # check_processes(VM_KEYWORDS)
+    # check_users()
+    print(check_prompt())
 
 
