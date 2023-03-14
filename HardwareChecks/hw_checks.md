@@ -11,7 +11,7 @@ VM specific keywords such as `VBOX`, `VMWARE`, `ORACLE`.
 BIOS version can reflect on a virtual machine vendor, as it frequently contains
 VM specific keywords or VM software vendor.
 
-### 3. Hard drive size and model
+### 3. Hard drive size and model ✅
 
 Hard disk model can reflect on a virtual machine vendor. While hard disk size cannot 
 unequivocally determine virtual machine, it can be a good indicator, since virtual machines
