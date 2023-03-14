@@ -1,12 +1,12 @@
 ## Hardware Checks
 
-### 1. Motherboard version
+### 1. Motherboard version ✅
 
 Motherboard version can reflect on a virtual machine vendor, as it frequently contains
 VM specific keywords such as `VBOX`, `VMWARE`, `ORACLE`.
 
 
-### 2. BIOS version
+### 2. BIOS version ✅
 
 BIOS version can reflect on a virtual machine vendor, as it frequently contains
 VM specific keywords or VM software vendor.
@@ -32,7 +32,7 @@ or integer value. A virtual machine will likely throw an `ERROR`.
 A physical Windows machine can be queried for a CPU fans state which will return a class
 with CPU fans statistics. A virtual machine will likely return an empty response.
 
-### 7. MAC addresses and adapter name
+### 7. MAC addresses and adapter name ✅
 
 Virtual machine vendor have specific MAC address that are given by default to their network
 interfaces, for example:
