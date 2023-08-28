@@ -10,7 +10,7 @@ class CPUChecks:
 
     def run_CPUID_id(self):
         try:
-            completed_process = subprocess.run("../CPUCategory/CPUID-id/cpuid-id.exe", stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+            completed_process = subprocess.run("../Detection/CPUCategory/CPUID-id/cpuid-id.exe", stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
             stdout_output = str(completed_process.stdout)
             id = ""
             for c in stdout_output:
@@ -26,7 +26,7 @@ class CPUChecks:
 
     def run_CPUID_hv(self):
         try:
-            completed_process = subprocess.run("../CPUCategory/CPUID-hypervisor-bit/cpuid-hv.exe", stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+            completed_process = subprocess.run("../Detection/CPUCategory/CPUID-hypervisor-bit/cpuid-hv.exe", stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
             stdout_output = str(completed_process.stdout)
             if stdout_output == '1':
                 return {"detected": 1, "info": ["CPUID hypervisor bit set to 1"]}

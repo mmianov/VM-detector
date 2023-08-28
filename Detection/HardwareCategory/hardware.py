@@ -1,5 +1,5 @@
 import wmi
-from HardwareCategory.utils import convert_bytes
+from Detection.HardwareCategory.utils import convert_bytes
 
 
 class HardwareChecks:

@@ -1,9 +1,9 @@
 import sys
 
 sys.path.append('../')
-from HardwareCategory import hardware
-from SystemCategory import system
-from CPUCategory import cpu
+from Detection.HardwareCategory import hardware
+from Detection.SystemCategory import system
+from Detection.CPUCategory import cpu
 from UserInterface.interface import *
 
 
@@ -16,7 +16,7 @@ system_checks = [
     (system.check_system_family, "Checking system family parameter ..."),
     (system.check_files, "Checking for VM related files ..."),
     (system.check_registry_keys, "Checking VM related registry keys ..."),
-    (system.check_software, "Checking for malware analysis related software ..."),
+    # (system.check_software, "Checking for malware analysis related software ..."),
     (system.check_processes, "Checking running processes ..."),
     (system.check_users, "Checking for suspicious users ..."),
     (system.check_uptime, "Checking system uptime ..."),
