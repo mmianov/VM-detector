@@ -60,4 +60,4 @@ def print_initialize_module(check_type):
 
 def print_summary(check_type, check_object):
     return console.print(f"[bold medium_purple3][!] {check_type} Checks finished: " + str(check_object.detection_number)
-                         + "/" + str(check_object.detection_methods) + " methods detected VM or VM-related artifacts on the system.")
+                         + "/" + str(check_object.detection_methods) + " methods detected VM-related artifacts on the system.")
